@@ -1,0 +1,66 @@
+body {
+    padding: 90px 200px 400px 200px;
+}
+
+@media (max-width: 1200px) {
+    body {
+        padding: 60px 50px 200px 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 30px 20px 100px 20px;
+    }
+}
+
+p {
+    font-family: "Roboto";
+    line-height: 2;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.section-hero {
+    position: relative;
+    z-index: 1;
+}
+
+.wiggly-line {
+    position: fixed;
+    width: 12vw;
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#line1 {
+    top: 5vw;
+    left: -5vw;
+    width: 16vw;
+}
+
+#line2 {
+    top: -10vw;
+    left: 65%;
+    width: 17vw;
+}
+
+#line3 {
+    top: 6vw;
+    right: -3vw;
+    transform: translateX(0);
+}
+
+@keyframes randomMovement {
+    0% {transform: translate(0, 0); }
+    25% {transform: translate(50px, -50px); }
+    50% {transform: translate (-50px, 50px); }
+    75% {transform: translate (100px, -100px); }
+    100% {transform: translate(-100px, 100px); }
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+        <title>Trial</title>
+
+        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap">
+        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+        <link rel = "stylesheet" href = "style/general.css">
+        <link rel = "stylesheet" href = "style/content.css">
+
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+        <script src = "https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+
+    </head>
+
+
+    <body style = "--color: rgb(226, 226, 226); background-color: var(--color);">
+        
+        <div class = "container">
+            <div class = "section-hero">
+
+                <img class = "wiggly-line" id = "line1" src = "background/left.png" alt = "wiggly line">
+                <img class = "wiggly-line" id = "line2" src = "background/middle.png" alt = "wiggly line">
+                <img class = "wiggly-line" id = "line3" src = "background/right.png" alt = "wiggly line">
+
+                <div class = "title-container">
+                    <div class = "title">Computational Analysis of Genetic Risk for Schizophrenia</div>
+                    <div class = "data-source-container">
+                        <div class = "data-source">
+                            <a href = "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE164376" target = "_blank">
+                                GEO Database
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "date">
+                    Aug 2024
+                </div>
+
+                <div>
+                    <p>
+                        Despite advancements in clinical research, schizophrenia remains a debilitating mental disorder that threatens and consumes the lives of many. Although less common than other conditions like bipolar disorder, it significantly shortens life expectancy and 
+                        <span class = "references">
+                            <a href =  "https://doi.org/10.1192/apt.bp.108.006411" target = "_blank">
+                                has one of the poorest remission rates</a></span>. 
+                        Therefore, preliminary computational methods, such as those employed in this project, are needed to encourage continuous discussion on early detection and preventative measures for schizophrenia.
+                    </p>
+                </div>
+
+                <div class = "method">
+                    <p>
+                        RNA-seq data for human induced pluripotent derived orbitofrontal cortical neurons (9 healthy, 8 disease) was downloaded from NCBI GEO DataSets.
+                    </p>
+                </div>
+
+                <div class = "method">
+                    <p>
+                        Raw and clinical data were cleaned and formatted. Normalisation of data was performed using DESeq2. Differentially expressed genes (DEGs) were identified (p < 0.05) and visualised via heat map and volcano plot. Gene set enrichment analysis (GSEA) and pathway enrichment analysis were then performed to evaluate the biological pathways affected by significant genes.
+                    </p>
+                </div>
+                
+            </div>
+
+            <div class = "section1">
+                <div class = "subheading problem-statement">
+                    Problem statement
+                </div>
+
+                <div>
+                    <p>
+                        While 
+                        <span class = "references">
+                            <a href = "https://doi.org/10.3325%2Fcmj.2023.64.110" target = "_blank">
+                                genetic changes in the prefrontal cortex are linked to schizophrenia</a></span>,
+                        genetic changes in the orbitofrontal cortex, where 
+                        <span class = "references">
+                            <a href = "https://doi.org/10.1016/j.pscychresns.2020.111100" target = "_blank"> 
+                                thinning occurs in patients</a></span>,
+                        remain elusive.
+                    </p>
+                </div>
+                
+                <div class = "subheading">
+                    Objectives
+                </div>
+
+                <div class = "objective-grid-container">
+                    <div class = "bullet-point-container">
+                        <div class = "objective-numbers">
+                            1
+                        </div>
+                        <div class = "objective-numbers">
+                            2
+                        </div>
+                    </div>
+                    <div class = "objective-points-container">
+                        <div class = "objective-points">
+                            To identify significantly upregulated and downregulated genes 
+                        </div>
+                        <div class = "objective-points">
+                            To determine affected biological pathways of significant genes
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "subheading">
+                    Results
+                </div>
+
+                <div class = "subheading2">
+                    a&#41; Evaluating data quality
+                </div>
+
+                <div class = "content-container">
+                    <div class = "dataquality-content">
+                        <div>
+                            <img class = "figures" src = "graphs/pca plot.png">
+                        </div>
+                        <div>
+                            <p style = "margin-top: 0px;">
+                                Data points of similar condition should be clustered together in a PCA plot, as seen mostly with the healthy data points. 
+                            </p>
+                            <p>
+                                The random scattering of diseased data points shows high variability within this group, suggesting a lack of a dominant gene expression pattern distinguishing the two groups. This aligns with the 
+                                <span class = "references"><a href = "https://www.ncbi.nlm.nih.gov/books/NBK539864/" target = "_blank">complex etiology of schizophrenia</a></span>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class = "dataquality-content">
+                        <img class = "figures" src = "graphs/dispersion estimates.png">
+                        <p style = "margin-top: 0px">
+                            The dispersion estimates decrease with increasing mean expression, indicating a good fit of the data to the model and suitability for for differential expression analysis. Strong shrinkage observed (blue dots)  may be to a lack of replicates in the dataset.
+                        </p>
+                    </div>
+                </div>
+
+                <div style = "margin-top: 80px; text-decoration: underline;">
+                    <p>
+                        Objective 1&#58; To identify significantly upregulated and downregulated genes 
+                    </p>
+                </div>
+
+                <div class = "subheading2" style = "margin-top: 30px;">
+                    b&#41; Heat map
+                </div>
+
+                <div class = "content-container">
+                    <div class = "deg-content">
+                        <img class = "figures" src = "graphs/heatmap.png">
+                        <div>
+                            <p style = "margin-top: 0px;">
+                                Clusters of differentially expressed genes are observed in the heatmap. In the bottom half, a more uniform gene expression pattern is observed, with a distinct cluster of genes consistently upregulated in the control group and downregulated in the disease group.
+                            </p>
+                            <p>
+                                An outlier (ML15) from the control group was identified, with an expression profile that more closely resembles that of the disease samples. This sample was not excluded from the analysis due to limited information regarding potential experimental or data processing issues.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = "subheading2">
+                    c&#41; Volcano plot
+                </div>
+
+                <div class = "content-container">
+                    <div class = "deg-content">
+                        <img class = "figures" src = "graphs/volcano_plot_padj.png">
+                        <div>
+                            <p style = "margin-top: 0px;">
+                                Significantly upregulated and downregulated genes are labelled in the top right and left quadrants, respectively. 
+                            </p>
+                            <p>
+                                The 
+                                <span class = "references"><a href = "https://www.sciencedirect.com/topics/medicine-and-dentistry/cholecystokinin" target = "_blank">(cholecystokinin) gene</a></span>,
+                                which codes for a neuropeptide,  appears to be the most significantly differentially expressed, as it is the farthest from the central line.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style = "margin-top: 80px; text-decoration: underline;">
+                    <p>
+                        Objective 2&#58; To determine affected biological pathways of significant genes
+                    </p>
+                </div>
+
+                <div class = "subheading2" style = "margin-top: 30px;">
+                    d&#41; GSEA dot plot
+                </div>
+
+                <div class = "content-container">
+                    <div class = "deg-content">
+                        <img class = "figures" src = "graphs/enrichment analysis dotplot.png">
+                        <div>
+                            <p style = "margin-top: 0px; margin-bottom: 0px;">
+                                The GSEA dot plot shows that the upregulated gene set related to the MHC class II protein complex has the highest enrichment. Besides its immunological roles, 
+                                <span class = "references"><a href = "https://doi.org/10.4172%2F2155-9899.1000479" target = "_blank">MHC class II protein is involved in synaptogenesis</a></span>,
+                                and its upregulation may disrupt this process, potentially contributing to the pathology of schizophrenia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p>
+                        Conversely, the most enriched downregulated gene sets involve the CENP-A containing nucleosome, CENP-A containing chromatin and protein localization to CENP-A containing chromatin. Given the role of CENP-A in genomic stability, downregulation in these gene sets could result in 
+                        <span class = "references"><a href = "https://doi.org/10.1128%2FMCB.01318-09" target = "_blank">p53-dependent cellular senescence</a></span>.
+                    </p>
+                    <p>
+                        Together, disrupted synaptogenesis and cellular senescence induced by these differentially expressed gene sets may contribute to orbitofrontal cortex thinning observed in schizophrenia.
+                    </p>
+                </div>
+
+                <div class = "subheading2">
+                    e&#41; GSEA ridge plot
+                </div>
+
+                <div class = "content-container">
+                    <div class = "deg-content">
+                        <img class = "figures" src = "graphs/enrichment analysis ridge plot.png">
+                        <div>
+                            <p style = "margin-top: 0px;">
+                                Most of the density curves are positioned above 0, indicating that the majority of enriched gene sets are upregulated. The highest density gene sets (tall ridges) with statistical significance are associated to MHC class II proteins.
+                            </p>
+                            <p style = "margin-bottom: 0px;">
+                                On the other hand, high density ridges are also observed for downregulated gene sets involved in chromatin assembly and structure.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p>
+                        These findings from the GSEA ridge plot are consistent with those observed in the GSEA dot plot.
+                    </p>
+                </div>
+
+                <div class = "subheading2">
+                    f&#41; Pathway enrichment analysis
+                </div>
+
+                <div>
+                    <img class = "figures" src = "graphs/pathway analysis cnet.png">
+                    <p>
+                        Two clusters of enriched pathways are observed in the CNET plot: one related to cell adhesion (upregulated) and the other to chromatin structure (downregulated). The absence of MHC class II-related biological pathways is likely due to low gene density.
+                    </p>
+                    <p>
+                        For the cell adhesion cluster, the upregulated gene ICAM1 is consistent with a previous study linking 
+                        <span class = "references"><a href = "https://doi.org/10.3390%2Fmetabo13030376" target = "_blank">high serum levels of ICAM1 to schizophrenia</a></span>. 
+                        According to this study, ICAM1 overexpression contributes to metabolic syndrome, a condition in schizophrenia that reduces life expectancy. One of the top DEGs from the volcano plot, COL8A2, is displayed in this cluster. The TGFB2 gene (padj = 0.015) is involved in several enriched pathways, as shown by its multiple nodal connections, suggesting a pleiotropic effect and a vital role in cell adhesion processes. Therefore, further investigation of this gene is recommended.
+                    </p>
+                    <p>
+                        For the chromatin structure cluster, many of the genes displayed, such as H4C1, H4C2, H4C3, H1-2, H1-3, H1-4, are involved in histone biology. Variation in these genes are 
+                        <span class = "references"><a href = "https://doi.org/10.1038/s41398-022-02037-2" target = "_blank">associated with several pyschiatric disorders, including schizophrenia</a></span>.
+                    </p>
+                </div>
+
+                <div class = "subheading">
+                    Conclustion
+                </div>
+
+                <div>
+                    <p>
+                        The top DEGs in this dataset include CCK, THRB, MYO3A, CRISPLD2, COL8A2, and LAMC2, with COL8A2 being the only one involved in an enriched pathway. The enriched biological pathways include upregulated pathways related to cell adhesion and downregulated pathways related to chromatin structure, both of which are consistent with associations found in current schizophrenia research.  
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            //Javascript for scroll-triggered background color change
+            gsap.registerPlugin(ScrollTrigger);
+
+            const locoScroll = new LocomotiveScroll({
+                el: document.querySelector(".container"),
+                smooth: true
+            });
+
+            ScrollTrigger.scrollerProxy(".container", {
+                scrollTop(value) {
+                    return arguments. length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+                },
+                getBoundingClientRect() {
+                    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+                },
+                pinType: document.querySelector(".container").style.transform ? "transform" : "fixed"
+            });
+
+            gsap.to("body", {
+                "--color": "white",
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: ".section1",
+                    scroller: ".container",
+                    scrub: true,
+                    start: 'top bottom',
+                    end: '+=100%'
+                }
+            });
+
+            gsap.to(".wiggly-line", {
+                opacity: 0, 
+                scrollTrigger: {
+                    trigger: ".section1", 
+                    scroller: ".container",
+                    scrub: true,
+                    start: 'top bottom',
+                    end: '+=100%' 
+                }
+            });
+
+            // Refresh ScrollTrigger on scroll and update
+            locoScroll.on("scroll", ScrollTrigger.update);
+            ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+            ScrollTrigger.refresh();
+
+        </script>
+
+    </body>
+
+</html>
